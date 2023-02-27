@@ -1,11 +1,13 @@
 import 'dart:convert';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:http/http.dart' as http;
 
 import '../../../utils/api.dart';
 import '../../dasboard/views/dasboard_view.dart';
+import 'package:http/http.dart' as http;
 
 class LoginController extends GetxController {
   //TODO: Implement LoginController
@@ -47,7 +49,8 @@ class LoginController extends GetxController {
         jsonDecode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>;
     if (decodedResponse['success'] == true) {
       authToken.write('token', decodedResponse['access_token']);
-      Get.offAllNamed('/dashboard');
+      authToken.write('full_name', response.body['full_name']);
+      Get.offAllNamed('/home');
     } else {
       Get.snackbar('Error', decodedResponse['message'],
           icon: const Icon(Icons.error),

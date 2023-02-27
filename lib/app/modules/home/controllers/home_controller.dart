@@ -21,7 +21,7 @@ class HomeController extends GetxController {
               () => LoginView(),
               transition: Transition.leftToRight,
             )
-          : Get.off(() => const DashboardView()),
+          : Get.off(() => DashboardView()),
     );
   }
 
