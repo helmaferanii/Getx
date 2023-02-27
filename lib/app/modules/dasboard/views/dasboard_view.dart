@@ -89,9 +89,7 @@ class DashboardView extends GetView<DashboardController> {
             ),
           ),
           body: TabBarView(
-            // Widget TabBarView digunakan untuk menampilkan konten yang terkait dengan masing-masing tab.
             children: [
-              // Properti children digunakan untuk menentukan konten yang akan ditampilkan pada masing-masing tab.
               headline(controller, scrollController),
               Center(child: Text('Berita Teknologi')),
               Center(child: Text('Berita Olahraga')),
